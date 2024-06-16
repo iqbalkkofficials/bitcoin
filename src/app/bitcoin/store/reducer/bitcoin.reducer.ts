@@ -3,10 +3,12 @@ import * as BitcoinActions from '../actions/bitcoin.actions';
 
 export interface State {
     value: any | null;
+    error: any;
 }
 
 export const initialState: State = {
     value: null,
+    error: null
 };
 
 
@@ -17,6 +19,11 @@ export const bitcoinReducer = createReducer(
         ...state,
         value
     })),
+
+    on(BitcoinActions.loadBitcoinFailure, (state, { error }) => ({
+        ...state,
+        error
+      }))
 
 
 );
@@ -48,4 +55,8 @@ export const bitcoinTrendingReducer = createReducer(
         trendingCoins: coins,
         lastUpdated: Date.now()
     })),
+    on(BitcoinActions.loadTrendingBitcoinFailure, (state, { error }) => ({
+        ...state,
+        error
+      }))
 )

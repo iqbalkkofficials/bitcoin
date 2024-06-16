@@ -9,6 +9,7 @@ export const selectBitcoinValue = createSelector(
   (state: State) => state.value
 );
 
+
 export const selectTrendingBitcoinValue = createSelector(
     selectTrendingBitcoinState,
     (state: BitcoinState) => state.trendingCoins
@@ -17,4 +18,9 @@ export const selectTrendingBitcoinValue = createSelector(
   export const selectTrendingBitcoinLastUpdated = createSelector(
     selectTrendingBitcoinState,
     state => state.lastUpdated
+  );
+
+  export const selectBitcoinError = createSelector(
+    selectTrendingBitcoinState,
+    (state: BitcoinState) => state.error
   );
