@@ -14,4 +14,8 @@ export class BitcoinService {
     return this.http.get<any>('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=' + currency);
   }
 
+  getTrendingSearchCoin() : Observable<any> {
+    return this.http.get<any>('https://api.coingecko.com/api/v3/search/trending');
+  }
+
 }

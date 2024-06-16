@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { UserEffects } from './bitcoin/store/effects/bitcoin.effects';
-import { bitcoinReducer } from './bitcoin/store/reducer/bitcoin.reducer';
+import { BitcoinEffects } from './bitcoin/store/effects/bitcoin.effects';
+import { bitcoinReducer, bitcoinTrendingReducer } from './bitcoin/store/reducer/bitcoin.reducer';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { bitcoinReducer } from './bitcoin/store/reducer/bitcoin.reducer';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({ bitcoin: bitcoinReducer }),
-    EffectsModule.forRoot([UserEffects]),
+    StoreModule.forRoot({ bitcoin: bitcoinReducer, bitcoinTending: bitcoinTrendingReducer }),
+    EffectsModule.forRoot([BitcoinEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

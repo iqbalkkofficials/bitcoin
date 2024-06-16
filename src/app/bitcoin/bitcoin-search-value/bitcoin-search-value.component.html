@@ -1,13 +1,21 @@
-<div style="text-align:center">
-  <form (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <mat-label>Enter your currency</mat-label>
-      <input matInput [(ngModel)]="searchValue" name="searchValue" required>
-    </mat-form-field>
+<div class="container ">
+  <mat-card id="card" style="text-align: center;">
+    <mat-card-title>
+      Bitcoin Value
+    </mat-card-title>
 
-    <button mat-raised-button color="primary" type="submit">Search</button>
-  </form>
-  <div *ngIf="bitcoinValue$ | async as value">
-    <h1>Bitcoin Value: {{ value }}</h1>
-  </div>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Enter your currency</mat-label>
+          <input matInput [(ngModel)]="searchValue" name="searchValue" required>
+        </mat-form-field><br />
+        <button mat-raised-button color="primary" style="margin-right:5px;" type="submit">FIND</button>
+        <div *ngIf="bitcoinValue$ | async as value">
+          <h1>Bitcoin Value: {{ value }}</h1>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
 </div>

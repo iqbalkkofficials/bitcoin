@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import * as UserActions from '../store/actions/bitcoin.actions';
+import * as BitcoinActions from '../store/actions/bitcoin.actions';
 import { Observable } from 'rxjs';
 import { selectBitcoinValue } from '../store/selector/bitcoin.selector';
 
@@ -18,9 +18,12 @@ export class BitcoinSearchValueComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // retrieve value from store using selector
     this.bitcoinValue$ = this.store.pipe(select(selectBitcoinValue));
+
+    //send which action to perform based on currency input
     let currency = this.searchValue;
-    this.store.dispatch(UserActions.loadBitcoin({ currency }))
+    this.store.dispatch(BitcoinActions.loadBitcoin({ currency }))
   }
 
 }
