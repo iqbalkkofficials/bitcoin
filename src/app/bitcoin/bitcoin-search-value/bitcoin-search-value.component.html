@@ -4,13 +4,10 @@
       <mat-label>Enter your currency</mat-label>
       <input matInput [(ngModel)]="searchValue" name="searchValue" required>
     </mat-form-field>
-  
+
     <button mat-raised-button color="primary" type="submit">Search</button>
   </form>
-  <div *ngIf="bitcoinValue !== null">
-    <h2>The current Bitcoin value is: {{ bitcoinValue }}</h2>
-  </div>
-  <div *ngIf="errorMessage">
-    <h2 style="color: red;">{{ errorMessage }}</h2>
+  <div *ngIf="bitcoinValue$ | async as value">
+    <h1>Bitcoin Value: {{ value }}</h1>
   </div>
 </div>
