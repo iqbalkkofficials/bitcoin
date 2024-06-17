@@ -18,7 +18,7 @@ export class BitcoinListComponent implements OnInit {
   bitcoinTrendingValue$!: Observable<any>;
   tableData: any;
   dataSource = new MatTableDataSource<[]>;
-  displayedColumns: string[] = ['coin_id', 'id', 'name', 'market_cap_rank'];
+  displayedColumns: string[] = ['coin_id', 'id', 'name', 'market_cap_rank', 'symbol'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;

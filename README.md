@@ -2,6 +2,12 @@
 
 This is an Angular application that uses NgRx for state management. The app fetches and displays Bitcoin value and trending Bitcoin data.
 
+# Features
+- Bitcoin Value Search: Fetch and display the current Bitcoin value.
+- Trending Coins Listing: Display a list of trending coins.
+- State Management: Utilizes NgRx for state management.
+- Error Handling: Comprehensive error handling for API requests.
+
 ## Prerequisites
 
 - Node.js 16.20.2
@@ -55,3 +61,6 @@ Feel free to submit issues and pull requests.
 ### License
 
 This project is licensed under the MIT License.
+
+### Acknowledgements
+CoinGecko for providing the API to fetch cryptocurrency data.

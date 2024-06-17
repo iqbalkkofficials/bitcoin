@@ -1,9 +1,5 @@
 <div class="container ">
   <mat-card id="card" style="text-align: center;">
-    <mat-card-title>
-      Bitcoin Value
-    </mat-card-title>
-
     <mat-card-content>
       <form (ngSubmit)="onSubmit()">
         <mat-form-field>
@@ -13,6 +9,9 @@
         <button mat-raised-button color="primary" style="margin-right:5px;" type="submit">FIND</button>
         <div *ngIf="bitcoinValue$ | async as value">
           <h1>Bitcoin Value: {{ value }}</h1>
+        </div>
+        <div *ngIf="errorMessage$ | async as errorMessage">
+          <h2 style="color: red;">{{ errorMessage }}</h2>
         </div>
       </form>
 

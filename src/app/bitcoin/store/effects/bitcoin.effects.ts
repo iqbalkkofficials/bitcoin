@@ -21,7 +21,8 @@ export class BitcoinEffects {
                     map(response => {
                         const value = response.bitcoin?.[action.currency] ?? null;
                         return BitcoinActions.loadBitcoinSuccess({ value })
-                    })
+                    }),
+                    catchError(error => of(BitcoinActions.loadBitcoinFailure({ error: error.message })))
                 )
             )
         )
@@ -39,7 +40,6 @@ export class BitcoinEffects {
                     select(selectTrendingBitcoinValue),
                     map(coins => BitcoinActions.loadTrendingBitcoinSuccess({ coins }))
                 );
-                //return of(BitcoinActions.loadTrendingBitcoinSuccess({ coins: state.trendingCoins }));
 
             } else {
                 // Make API call
